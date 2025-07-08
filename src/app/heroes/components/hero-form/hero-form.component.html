@@ -1,0 +1,48 @@
+<mat-card class="form-card">
+    <mat-card-header class="card-header">
+      <mat-card-title>
+        {{ isEdit ? 'Editar Superhéroe' : 'Nuevo Superhéroe' }}
+      </mat-card-title>
+    </mat-card-header>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+  
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" appUppercase />
+        @if (f['name'].hasError('required')) {
+            <mat-error >El nombre es requerido.</mat-error>
+        }
+        @if(f['name'].hasError('minlength')){
+            <mat-error >El nombre debe tener al menos 3 caracteres. </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Poder</mat-label>
+        <input matInput formControlName="power" />
+        @if (f['power'].hasError('required')) {
+            <mat-error>El poder es requerido.</mat-error>
+        }
+      </mat-form-field>
+  
+      <!-- Ciudad -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Ciudad</mat-label>
+        <input matInput formControlName="city" />
+        @if (f['city'].hasError('required')) {
+            <mat-error >La ciudad es requerida.</mat-error>
+        }
+      </mat-form-field>
+  
+      <!-- Botones -->
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ isEdit ? 'Actualizar' : 'Guardar' }}
+        </button>
+        <button mat-button type="button" (click)="backToList()">Cancelar</button>
+      </div>
+  
+    </form>
+  </mat-card>

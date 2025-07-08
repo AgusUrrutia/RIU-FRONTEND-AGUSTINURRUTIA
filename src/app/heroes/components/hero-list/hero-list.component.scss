@@ -1,0 +1,21 @@
+
+.container {
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin: 30px auto;
+    padding: 20px;
+    width: 60%;
+  }
+  
+  .filter-section {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  table {
+    width: 100%;
+  }
